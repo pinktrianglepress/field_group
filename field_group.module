@@ -646,7 +646,7 @@ function field_group_field_group_pre_render(& $element, &$group, & $form) {
     $element['#id'] = $form['#entity_type'] . '_' . $form['#bundle'] . '_' . $view_mode . '_' . $group->group_name;
   }
 
-  $element['#weight'] = $group->weight;
+  $element['#weight'] = isset($group->weight) ? $group->weight : 0;
 
   // Call the pre render function for the format type.
   $function = "field_group_pre_render_" . str_replace("-", "_", $group->format_type);
@@ -668,7 +668,7 @@ function field_group_pre_render_fieldset(&$element, $group, &$form) {
 
   $element += array(
     '#type' => 'fieldset',
-    '#title' => check_plain(t($group->label)),
+    '#title' => isset($group->label) ? check_plain(t($group->label)) : '',
     '#collapsible' => $group->collapsible,
     '#collapsed' => $group->collapsed,
     '#pre_render' => array(),
