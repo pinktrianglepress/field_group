@@ -36,6 +36,7 @@ function field_group_field_ui_form_params($form, $display_overview) {
         foreach ($group->children as $child) {
             $params->parents[$child] = $name;
         }
+    }
    }
 
   return $params;
