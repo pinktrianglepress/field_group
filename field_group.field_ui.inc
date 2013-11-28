@@ -37,7 +37,7 @@ function field_group_field_ui_form_params($form, $display_overview) {
             $params->parents[$child] = $name;
         }
     }
-   }
+  }
 
   return $params;
 }
